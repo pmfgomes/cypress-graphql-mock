@@ -3,7 +3,7 @@ import { graphql, IntrospectionQuery, GraphQLError } from "graphql";
 import { buildClientSchema, printSchema } from "graphql";
 import {
   makeExecutableSchema,
-  addMocksToSchema,
+  addMockFunctionsToSchema,
   IMocks
 } from "graphql-tools";
 
@@ -92,7 +92,7 @@ Cypress.Commands.add(
       typeDefs: schemaAsSDL(options.schema)
     });
 
-    addMocksToSchema({
+    addMockFunctionsToSchema({
       schema,
       mocks
     });

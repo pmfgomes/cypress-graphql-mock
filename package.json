@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "graphql": "^15.4.0",
-    "graphql-tools": "^7.0.1",
+    "graphql-tools": "^4.0.3",
     "tslib": "^2.0.3"
   },
   "peerDependencies": {

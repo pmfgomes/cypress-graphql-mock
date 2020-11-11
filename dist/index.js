@@ -54,7 +54,7 @@ Cypress.Commands.add("mockGraphql", function (options) {
   var schema = graphql_tools_1.makeExecutableSchema({
     typeDefs: schemaAsSDL(options.schema),
   });
-  graphql_tools_1.addMocksToSchema({
+  graphql_tools_1.addMockFunctionsToSchema({
     schema: schema,
     mocks: mocks,
   });

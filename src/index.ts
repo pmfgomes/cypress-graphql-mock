@@ -1,11 +1,8 @@
 /// <reference types="cypress" />
 import { graphql, IntrospectionQuery, GraphQLError } from "graphql";
 import { buildClientSchema, printSchema } from "graphql";
-import {
-  makeExecutableSchema,
-  addMockFunctionsToSchema,
-  IMocks
-} from "graphql-tools";
+import { makeExecutableSchema } from "@graphql-tools/schema";
+import { IMocks, addMocksToSchema } from "@graphql-tools/mock";
 
 interface MockGraphQLOptions<AllOperations extends Record<string, any>> {
   schema: string | string[] | IntrospectionQuery;
@@ -92,7 +89,7 @@ Cypress.Commands.add(
       typeDefs: schemaAsSDL(options.schema)
     });
 
-    addMockFunctionsToSchema({
+    addMocksToSchema({
       schema,
       mocks
     });

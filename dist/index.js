@@ -4,7 +4,8 @@ var tslib_1 = require("tslib");
 /// <reference types="cypress" />
 var graphql_1 = require("graphql");
 var graphql_2 = require("graphql");
-var graphql_tools_1 = require("graphql-tools");
+var schema_1 = require("@graphql-tools/schema");
+var mock_1 = require("@graphql-tools/mock");
 var wait = function (timeout) {
   return function (response) {
     return new Promise(function (resolve) {
@@ -51,10 +52,10 @@ Cypress.Commands.add("mockGraphql", function (options) {
     operations = _c === void 0 ? {} : _c,
     _d = options.mocks,
     mocks = _d === void 0 ? {} : _d;
-  var schema = graphql_tools_1.makeExecutableSchema({
+  var schema = schema_1.makeExecutableSchema({
     typeDefs: schemaAsSDL(options.schema),
   });
-  graphql_tools_1.addMockFunctionsToSchema({
+  mock_1.addMocksToSchema({
     schema: schema,
     mocks: mocks,
   });
